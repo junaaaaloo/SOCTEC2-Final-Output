@@ -1,0 +1,65 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
+<title> Game Title </title>
+<link href="css/styles.css" rel = "stylesheet" type="text/css"> 
+<link href="css/rain.css" rel = "stylesheet" type="text/css">
+    
+<script src = "js/jquery-3.2.1.min.js"> </script>
+<script src = "js/index.js"> </script>
+
+</head>
+    <body>
+        <div id = "background">    
+        
+        </div>
+        
+        <div id = "overlay"> 
+        
+        </div>
+
+        <div id = "viewport">
+            <div class = "main-menu">
+                <div class = "menu-button-container">
+                    <div class = "title">
+                        <h1> 
+                            Detective Game
+                        </h1>
+                        <h5> 
+                            Introduction to Data Encrpytion
+                        </h5>
+                    </div>
+                    <button id = "start-button" class = "menu-button"> 
+                        START
+                    </button>
+                </div>
+                <div class = "menu-button-container">
+                    <button id = "about-button" class = "menu-button" onclick="about()"> 
+                        ABOUT
+                    </button>
+                </div>
+            </div>
+            <div class = "about-container">
+                <div class = "about">
+                    <button id = "about-back-button" onclick="start()"> X </button>
+                    <div id = "about-title" class = "about-item"> 
+                        ABOUT
+                    </div>
+                    <p id = "about-description" class = "about-item"> 
+                        This is a game designed to teach data encryption. This is made for a requirement for SOCTEC2 [Society and Technology 2] under Mr. Jeremiah Joaquin in De La Salle University, Manila.
+                    </p>
+                    
+                    <ul id = "about-members-list" class = "about-item">
+                        <li class = "about-members-list-item"> Batosalem, Angelika </li>
+                        <li class = "about-members-list-item"> Gaba, Janelle Marie </li>
+                        <li class = "about-members-list-item"> Mirafuentes, Troy </li>
+                        <li class = "about-members-list-item"> Ngo, Jan Bertel </li>
+                        <li class = "about-members-list-item"> Ticug, Jonal Ray </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
