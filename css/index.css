@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway|Roboto|Open+Sans|Oswald|Sedgwick+Ave');
+/* background base */
+#background {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+    background-size:     cover;
+    background-position: center;   
+    background-image: url(../res/background.jpg);
+    height:100%;
+    width:100%;
+    filter: blur(0.5px);
+    z-index: -1;
+}
+
+#overlay {
+    min-width: 100px;
+    width: 100%;
+    height: 100%;
+    min-width: 1300px;
+    position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+    margin: 0 auto;
+    background-image: url(../res/rain.gif);
+    background-color: transparent;
+    opacity: 1;
+}
+
+
+#viewport {
+    position: absolute;
+    top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+    margin: 0 auto;
+    min-width: 1300px;
+}
+
+button {
+    outline: none;
+}
+
+* {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* SCROLL BARS */
+::-webkit-scrollbar {
+    height: 5px;
+    width: 5px;
+    background-color: black;
+    border-style: solid;
+    border-width: thin;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: white;
+}

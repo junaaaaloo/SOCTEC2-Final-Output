@@ -1,0 +1,42 @@
+#home-main .background {
+    background-image: url(../../res/home-main.jpg);
+}
+
+#home-main .chatbox {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 95%;
+}
+
+#home-main .game-info {
+    position: absolute;
+    bottom: 0;
+    width: 95%;
+    left: 0;
+}
+
+#phone {
+    width: 60px;
+    height: 40px;
+    position: absolute;
+    z-index: 3;
+    background-image: url(../../res/icons/phone-on-surface.png);
+    background-size: 60px 40px;
+    left: 0%;
+    bottom: 39%;
+    transform: rotate3d(-1, -1, 1, 50deg);
+    
+}
+
+#book {
+    background-image: url(../../res/icons/note-on-surface.png);
+    background-size: 60px 40px;
+    transform: rotate3d(1, 1, 1, -90deg);
+    width: 60px;
+    height: 40px;
+    position: absolute;
+    right: 18%;
+    bottom: 19%;
+    z-index: 3;
+}

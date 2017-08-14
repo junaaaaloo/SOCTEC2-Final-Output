@@ -1,0 +1,29 @@
+#tutorial .overlay {
+    background-color: black;
+    opacity: 0.8;
+}
+
+#tutorial .tutorial-main {
+    width: 95%;
+    height: 90%;
+    overflow-y: scroll;
+    left: 0;
+    right: 0;
+    padding: 25px;
+}
+
+.tutorial-slide {
+    width: 100%;
+    height: 100%;
+}
+
+#start-game {
+    width: 300px;
+    margin: 10px;
+}
+
+#playerName {
+    width: 500px;
+    bottom: 0px;
+    float: left;
+}

@@ -1,0 +1,52 @@
+
+.about-container {
+    font-family: 'Raleway', sans-serif;
+    color: white;
+    background-color: black;
+    opacity: 0.8;
+    width: 80%;
+    height: 80%;
+    padding: 30px;
+    overflow-y: scroll;
+    margin: 20px auto;
+}
+
+#about-title {
+    font-size: 50px;
+    text-align: center;
+}
+
+#about-description {
+    margin: 20px 10%;
+    font-size: 35px;
+    text-align: justify;
+}
+
+#about-members-list {
+    font-size: 30px;
+    text-align: center;
+    list-style: none;
+    padding: 20 0px;
+    margin: 20px 0px;
+}
+
+#about-back-button {
+    background-color: transparent;
+    color: red;
+    font-size: 35px;
+    text-align: center;
+    margin: 0 auto;
+    border-style: solid;
+    border-color: red;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+#about-back-button:hover {
+    color: black;
+    background-color: red;
+}
+
+#about-back-button:focus {
+    outline: none;
+}

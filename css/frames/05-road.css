@@ -1,0 +1,16 @@
+#road .background {
+    background-image: url(../../res/road.jpg);
+}
+#road .chatbox {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 95%;
+}
+
+#road .game-info {
+    position: absolute;
+    bottom: 0;
+    width: 95%;
+    left: 0;
+}

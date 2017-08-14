@@ -1,0 +1,400 @@
+/* FRAMES */
+.frame {
+    height: 100%;
+    width: 100%;
+}
+
+.frame .maincontent {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+}
+
+#frame-container {
+    width: 85%;
+    height: 100%;
+    position: absolute;
+    left: 15%;
+    top: 0px;
+}
+
+.item-container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    z-index: 16;
+}
+
+.frame .decode {
+    width: 100%;
+    position: absolute;
+    z-index: 0;
+    right: 0px;
+    left; 0px;
+    bottom: 0;
+    text-align: center;
+    margin: 0 auto;
+    background-color: black;
+}
+
+.frame .decode button {
+    width: 400px;
+}
+
+.item-overlay {
+    height: 100%;
+    top: 0px;
+    background-color: black;
+    opacity: 0.8;
+    width: 100%;
+    position: absolute;
+}
+
+.frame .background {
+    position: absolute;
+    background-size: cover; 
+    background-position: bottom;
+    height:100%;
+    width:100%;
+    filter: blur(0.5px);
+    z-index: 0;
+}
+
+.frame .overlay {
+    height: 100%;
+    top: 0px;
+    width: 100%;
+    position: absolute;
+}
+
+.game-button {
+    font-family: 'Open Sans';
+    font-size: 20px;
+    background-color: transparent;
+    color: white;
+    width: 80%;
+    margin: 5px 10%;
+    padding: 10px;
+    transition: 0.5s;
+    cursor: pointer;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.game-button:disabled {
+    color: gray;
+}
+
+.game-button:hover:enabled {
+    background-color: white;
+    color: black;
+}
+
+#game-menu h3 {
+    font-size: 40px;
+    margin: 0px;
+    color: white;
+    text-align: center;
+    font-family: 'Open Sans'
+}
+
+#game-menu .location {
+    font-size: 20px;
+    margin: 0px;
+    color: white;
+    text-align: center;
+    font-family: 'Open Sans'
+}
+
+#game-menu {
+    width: 15%;
+    height: 100%;
+    z-index: 5;
+    padding: 0px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0px;
+    background-color: black;
+}
+
+.game-info {
+    color: white;
+    background-color: black;
+    font-family: 'Open Sans';
+    padding: 10px;
+    font-size: 20px;
+    margin: 10px;
+    border-style: solid;
+    border-width: 1px;
+    cursor: default;
+    z-index: 12;
+    
+}
+
+.header {
+    color: white;
+    cursor: default;
+    font-family: 'Open Sans';
+    font-size: 50px;
+    margin: 10px;
+    font-weight: bolder;
+}
+
+.title-info {
+    margin: 0 0;
+    text-align: center;
+    font-size: 40px;
+}
+
+
+.item {
+    font-family: 'Lucida COnsole';
+    width: 80%;
+    height: 100%;
+    position: absolute;
+    z-index: 8;
+    margin: 0 auto;
+    left: 0;
+    top: 0px;
+    background-color: black;
+    overflow-y: auto;
+    right: 0;
+}
+
+.item .main {
+    margin: 0 auto;
+    z-index: 4;
+    position: absolute;
+    padding: 50px 50px;
+    color: white;
+}
+
+.item img {
+    background-color: black;
+    width: 150px;
+    height: 300px;
+}
+
+.real-info {
+    color: black;
+    border-color: black;
+    border-style: solid;
+    cursor: default;
+    border-width: 1px;
+    background-color: white;
+    font-family: 'Open Sans';
+    padding: 10px;
+    font-size: 20px;
+    z-index: 12;
+    margin: 10px;
+}
+
+#markings {
+    width: 900px;
+    height: 500px;
+}
+
+#time {
+    color:white;
+    margin: 0px;
+    font-family: 'Open Sans';
+    text-align: center;
+}
+
+.chatbox {
+    font-family: 'Open Sans';
+    color: white; 
+    background-color: black;
+    font-family: 'Open Sans';
+    padding: 10px;
+    display: flex;
+    font-size: 20px;
+    margin: 10px;
+    z-index: 12;
+    flex-grow: 0;
+    border-style: solid;
+    border-width: 1px;
+    cursor: default;
+}
+
+.chatbox img {
+    width: 150px;
+    height: 300px;
+}
+
+.image {
+    margin: 0px;
+    padding: 0px;
+    width: 150px;
+    overflow: hidden;
+    height: 150px;
+}
+
+.chat-message {
+    width: 80%;
+}
+
+.chat-name {
+    margin: 0px;
+    font-weight: bolder;
+}
+
+.chat-content {
+    margin: 0px;
+}
+
+.ingame-button:disabled {
+    color: gray;
+}
+
+.ingame-button {
+    width: 300px;
+    font-family: 'Open Sans';
+    font-size: 20px;
+    background-color: transparent;
+    color: white;
+    margin: 5px;
+    padding: 10px;
+    transition: 0.5s;
+    cursor: pointer;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.ingame-button:enabled:hover {
+    color: black;
+    background-color: white;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.next {
+    margin: 10px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    
+}
+
+#close-file {
+    position: absolute;
+    z-index: 11;
+    bottom: 10px;
+    right: 0px;
+    left: 0px;
+    margin: 0 auto;
+    background-color: black;
+}
+
+#close-file:hover {
+    background-color: white;
+    color: black;
+}
+
+.ingame-field {
+    font-family: 'Open Sans';
+    color: white;
+    font-size: 30px;
+    width: 200px;
+    height: 50px;
+    background-color: transparent;
+    border-color: white;
+    border-width: 1px;
+    margin: 10px
+}
+
+.ciphertext {
+    width: 500px;
+    margin: 0 0px;
+    font-size: 20px;
+}
+
+.decode-btn {
+    width: 200px;
+    margin: 0 0px;
+}
+
+.objectives-container .main {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 80%;
+    margin: 0 auto;
+    right: 0px;;
+    height: 100%;
+    z-index: 15;
+}
+
+.notebook-container .main {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 80%;
+    margin: 0 auto;
+    right: 0px;;
+    height: 100%;
+    z-index: 15;
+}
+
+.notebook-container .overlay {
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    opacity: 0.8;
+    position: absolute;
+    z-index: 14;
+    background-color: black;
+}
+
+
+.objectives-container .overlay {
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    opacity: 0.8;
+    position: absolute;
+    z-index: 14;
+    background-color: black;
+}
+
+#item-main-container .main {
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 15;
+    padding-top: 50px;
+}
+
+#item-main-container .overlay {
+    width: 100%;
+    height: 100%;
+    z-index: 14;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    opacity: 0.9;
+    background-color: black;
+}
+
+.item {
+    display: flex;
+    background-color: transparent;
+    align-items: center;
+}
+
+.item .main {
+    padding: 20px;
+}

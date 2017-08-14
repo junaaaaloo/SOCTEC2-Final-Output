@@ -1,54 +1,496 @@
 <html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+        <title> Krypto </title>
 
-<title> Game Title </title>
-<link href="css/styles.css" rel = "stylesheet" type="text/css"> 
-<link href="css/rain.css" rel = "stylesheet" type="text/css">
+        <!-- LIBRARIES USED -->
+        <script src = "js/lib/jquery-3.2.1.min.js"> </script>
+        <script src = "js/lib/pixi.min.js"> </script>
+        
+        <!-- MAIN JS -->
+        <script src = "js/index.js"> </script>
+        
+        <!-- SUB MAIN CSS -->
+        <link href="css/about.css" type="text/css" rel="stylesheet">
+        <link href="css/main-menu.css" type="text/css" rel="stylesheet">
+        <link href="css/options.css" type="text/css" rel="stylesheet">
+        
+        <!-- FRAMES CSS -->
+        <link href="css/frames/frames.css" type="text/css" rel="stylesheet">
+        <link href="css/frames/01-tutorial.css" type="text/css" rel="stylesheet">
+        <link href="css/frames/02-office.css" type="text/css" rel="stylesheet">
+        <link href="css/frames/03-homemain.css" type="text/css" rel="stylesheet">
+        <link href="css/frames/04-garden.css" type="text/css" rel="stylesheet">
+        <link href="css/frames/05-road.css" type="text/css" rel="stylesheet">
+        <link href="css/frames/06-homekitchen.css" type="text/css" rel="stylesheet">
+        <link href="css/frames/07-homefinal.css" type="text/css" rel="stylesheet">
+        
+        <!-- MAIN CSS -->
+        <link href="css/index.css" type="text/css" rel="stylesheet">
+    </head>
     
-<script src = "js/jquery-3.2.1.min.js"> </script>
-<script src = "js/index.js"> </script>
-
-</head>
     <body>
-        <div id = "background">    
+        <div id = "background">  </div>
+        <div id = "overlay">  </div>
         
-        </div>
-        
-        <div id = "overlay"> 
-        
-        </div>
-
+        <!-- VIEWPORT MAIN START -->
         <div id = "viewport">
-            <div class = "main-menu">
-                <div class = "menu-button-container">
-                    <div class = "title">
-                        <h1> 
-                            Detective Game
-                        </h1>
-                        <h5> 
-                            Introduction to Data Encrpytion
-                        </h5>
+            <!-- MAIN GAME START -->
+            <div id = "main">
+                <!-- MAIN GAME -> MENU FOR GAME START -->
+                <div id = "game-menu">
+                    <h3> KYRPTO </h3>
+                    <p class = "location"> Tutorial </p>
+                    <p id = "time"> Time 00:00:00 </p>
+                    <button id = "tools" class = "game-button" title = "Here you can view all the items you got from the game"> Items </button>
+                    <button id = "objectives" class = "game-button" title = "Click this to access your tools!"> Objectives </button>
+                    <button id = "notebook" class = "game-button" title="Click this to access your notebook!"> Notebook </button>
+                    <button id = "giveup" class = "game-button"> Give Up </button>
+                </div>
+                <!-- MAIN GAME -> MENU FOR GAME END -->
+                
+                <!-- FRAMES CONTAINER START -->
+                <div id = "frame-container">
+                    <!-- 1ST FRAME: TUTORIAL -->
+                    <div class = "frame" id = "tutorial">
+                        <div class = "background"> </div>
+                        <div class = "overlay"> </div>
+                        
+                        <!-- 1ST FRAME: TUTORIAL - MAIN CONTENT START -->
+                        <div class = "maincontent">
+                            <!-- 1ST FRAME: TUTORIAL-MAIN START -->
+                            <div class = "tutorial-main">
+                                
+                                <div class = "header"> Welcome to KYRPTO! </div>
+                                <div class = "game-info">
+                                    Hi! Here we'll be guiding you the basics of the game with this tutorial! Read every item carefully.
+                                </div>
+
+                                <div class = "game-info">
+                                    Black box containers indicates that the content of the boxes are about the game itself! Read them to follow the story and the game so that you won't get lost in the game! Watch out for <span class = "underline">underlined words</span> and <span class = "bold"> bold words </span> as they may have a significant purpose.
+                                </div>
+
+                                <div class = "real-info">
+                                    White box containers indicates that the content of the boxes are about Data Encryption. Read them to gain more knowledge and maybe get tips from the game!
+                                </div>
+                                
+                                <div class="chatbox">
+                                    <div class = "image">
+                                        <img src='res/characters/char1-idle.png'>
+                                    </div>
+                                    <div class = "chat-message">
+                                        <p class = "chat-name"> Name </p>
+                                        Hi! I'm a character and this is what I'm about to say! Please watch out for <span class="underline"> underlined words </span> and <span class="bold"> bold words. </span> They may contain very important information!
+                                    </div>
+                                </div>
+
+                                <div class = "header"> Game Instructions </div>
+                                <div class = "game-info">
+                                    This is a puzzle solving type of game. You will solve different puzzles using Data Encryption. To finish the game, you have to complete all objectives. The only way to lose this game is to press the give up button on the side.
+                                </div>
+                                <div class = "game-info">
+                                    Your menu bar has 4 options you can use: <br>
+                                    ITEMS - in the game, you'll encounter items which you can use. You can view those items here <br>
+                                    OBJECTIVES - you can view your objectives again here. <br>
+                                    NOTEBOOK - you can view all the previous notes here about Data Encryption. <br>
+                                    GIVE UP - this is the only way to lose the game. Do not press this if you intend to finish the game!
+                                </div>
+                                <div class = "header"> Please input your name: </div>
+                                <input id = "playerName" class = "ingame-field" type = "text">
+                                <button id = "start-game" class = "ingame-button">
+                                    Let's Start!
+                                </button>
+                            </div>
+                            <!-- 1ST FRAME: TUTORIAL-MAIN END -->
+                        </div>
                     </div>
-                    <button id = "start-button" class = "menu-button"> 
-                        START
-                    </button>
+
+                    <!-- 2ND FRAME: OFFICE START -->
+                    <div class = "frame" id = "office"> 
+                        <div class = "background"> </div>
+                        <div class = "overlay"> </div>
+                        
+                        <div class = "clue" id = "note1"></div>
+                        <div class = "clue" id = "note2"></div>
+                        
+                        <div class = "maincontent">
+                            <div class = "chatbox">
+                                <div class = "image"> <img> </div>
+                                <div class = "chat-message">
+                                    <p class = "chat-name"> </p>
+                                    <p class = "chat-content">
+                                    </p>
+                                    <p class = "next">
+                                        Next >>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class = "game-info"> </div>
+                            <div class = "real-info"> </div>
+                            
+                            <div class = "decode">
+                                <input type = "text" class='ciphertext ingame-field'>
+                                <button class = "decode-btn game-button"> 
+                                DECODE 
+                                </button>
+                            
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 2ND FRAME: OFFICE END -->
+                    
+                    <!-- 3RD FRAME: HOME MAIN START -->
+                    <div class = "frame" id = "home-main"> 
+                        <div class = "background"> </div>
+                        <div class = "overlay"> </div>
+
+                        <div id = "book"> </div>
+                        <div id = "phone"> </div>
+                        
+                        <div class = "maincontent">
+                            <div class = "chatbox">
+                                <div class = "image"> <img> </div>
+                                <div class = "chat-message">
+                                    <p class = "chat-name"> </p>
+                                    <p class = "chat-content">
+                                    </p>
+                                    <p class = "next">
+                                        Next >>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class = "game-info"> </div>
+                            <div class = "real-info"> </div>
+                            
+                            <div class = "decode">
+                                <input type = "text" class='ciphertext ingame-field'>
+                                <button class = "decode-btn game-button"> 
+                                DECODE 
+                                </button>
+                            
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 3RD FRAME: HOME MAIN END -->
+
+                    <!-- 4TH FRAME: GARDEN START -->
+                    <div class = "frame" id = "garden">     
+                        <div id = "book"> </div>
+                        <div id = "phone"> </div>
+                        <div class = "background"> </div>
+                        <div class = "overlay"> </div>
+                        
+                        <div class = "maincontent">
+                            <div class = "chatbox">
+                                <div class = "image"> <img> </div>
+                                <div class = "chat-message">
+                                    <p class = "chat-name"> </p>
+                                    <p class = "chat-content">
+                                    </p>
+                                    <p class = "next">
+                                        Next >>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class = "game-info"> </div>
+                            <div class = "real-info"> </div>
+                            
+                            <div class = "decode">
+                                <input type = "text" class='ciphertext ingame-field'>
+                                <button class = "decode-btn game-button"> 
+                                DECODE 
+                                </button>
+                            
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 4TH FRAME: GARDEN END -->
+
+                    <!-- 5TH FRAME: ELM'S ROAD START -->
+                    <div class = "frame" id = "road">     
+                        <div id = "book"> </div>
+                        <div id = "phone"> </div>
+                        <div class = "background"> </div>
+                        <div class = "overlay"> </div>
+                        
+                        <div class = "maincontent">
+                            <div class = "chatbox">
+                                <div class = "image"> <img> </div>
+                                <div class = "chat-message">
+                                    <p class = "chat-name"> </p>
+                                    <p class = "chat-content">
+                                    </p>
+                                    <p class = "next">
+                                        Next >>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class = "game-info"> </div>
+                            <div class = "real-info"> </div>
+                            
+                            <div class = "decode">
+                                <input type = "text" class='ciphertext ingame-field'>
+                                <button class = "decode-btn game-button"> 
+                                DECODE 
+                                </button>
+                            
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 5TH FRAME: ELM'S ROAD END -->
+
+                    <!-- 6TH FRAME: KITCHEN START -->
+                    <div class = "frame" id = "home-kitchen">     
+                        <div id = "book"> </div>
+                        <div id = "phone"> </div>
+                        <div class = "background"> </div>
+                        <div class = "overlay"> </div>
+                        
+                        
+                        
+                        <div class = "maincontent">
+                            <div class = "clue" id = "note4"></div>
+                            <div class = "chatbox">
+                                <div class = "image"> <img> </div>
+                                <div class = "chat-message">
+                                    <p class = "chat-name"> </p>
+                                    <p class = "chat-content">
+                                    </p>
+                                    <p class = "next">
+                                        Next >>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class = "game-info"> </div>
+                            <div class = "real-info"> </div>
+                            
+                            <div class = "decode">
+                                <input type = "text" class='ciphertext ingame-field'>
+                                <button class = "decode-btn game-button"> 
+                                DECODE 
+                                </button>
+                            
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 6TH FRAME: KITCHEN END -->
+
+                    <!-- 7TH FRAME: LAST HOME START -->
+                    <div class = "frame" id = "home-final">     
+                        <div id = "book"> </div>
+                        <div id = "phone"> </div>
+                        <div class = "background"> </div>
+                        <div class = "overlay"> </div>
+                        
+                        <div class = "maincontent">
+                            <div class = "clue" id = "note4"></div>
+                            <div class = "chatbox">
+                                <div class = "image"> <img> </div>
+                                <div class = "chat-message">
+                                    <p class = "chat-name"> </p>
+                                    <p class = "chat-content">
+                                    </p>
+                                    <p class = "next">
+                                        Next >>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class = "game-info"> </div>
+                            <div class = "real-info"> </div>
+                            
+                            <div class = "decode">
+                                <input type = "text" class='ciphertext ingame-field'>
+                                <button class = "decode-btn game-button"> 
+                                DECODE 
+                                </button>
+                            
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 7TH FRAME: LAST HOME END -->
+                    
+                    <div class = "item-container">
+                        <div class = "item-overlay"> </div>
+                        <div class = "items-main">
+                            <!-- FILE START -->
+                            <div id = "file" class = "item">
+                                <div class = "main">
+                                    <h1 class = "file-header"> 
+                                        CASE NO. 0987674102 <br> 
+                                        Missing Person since September 2, 2017 
+                                    </h1>
+                                    <div class = "image">
+                                        <img src='res/characters/charmain-.png'>    
+                                    </div>
+                                    <p class = "file-name"> Name: </p> 
+                                    <p class = "file-gender"> Gender: Male </p>
+                                    <p class = "file-age"> Age: 15 </p>
+                                    <p class = "file-address"> Address: 13 3 11 9 14 12 5 25 0 18 15 1 4 0 7 15 20 8 1 13 0 3 9 20 25 </p>
+                                    Description: 
+                                    <ul class = "file-description">
+                                        <li> last seen 3 weeks ago. No one knows where he went. </li>
+                                        <li> left house at 5:00 PM never came back. </li>
+                                        <li> quite the prankster, leaves a lot of clues  </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- FILE END -->
+                            
+                            <!-- NOTE 1 START -->
+                            <div class = "item" id = "note1-file">
+                                <div class = "main game-info"> 
+                                    CASE FILE DATABASE UPDATE: <br>
+                                    DUE TO SYSTEM MALFUNCTION, ALL ADDRESS DATA ARE NOW ENCRYPTED. <br>
+                                    PLEASE REFER TO THE KEY BELOW: <br>
+                                    SPACE = 0 <br>
+                                    A = 1 <br>
+                                      :<br>
+                                      :<br>
+                                    Z = 26 <br>
+                                    THANK YOU!
+                                </div>
+                            </div>
+                            <!-- NOTE 1 END -->
+                        </div>
+                        
+                        <div class = "item" id = "text-file">
+                            <div class = "main game-info"> 
+                                From: Zach McMullin <br>
+                                To: Chester Smith <br>
+                                Hey dude! Meet me in Kzkxtoze Mgxjkt
+                                - ROT6 bro ;)
+                                <br>
+                            </div>
+                        </div>
+                        
+                        <div class = "item" id = "note2-file"> 
+                            <div class = "main game-info">
+                                I've been playing with the Caesar cipher. It seems old though. <br>
+                                What does ROT mean? <br>
+                                I don't know but I just shift the alphabet everytime. <br>
+                                
+                                HELLO -> ROT1 -> IFMMP
+                                HELLO -> ROT2 -> JGNNQ                          
+                            </div>
+                        </div>
+                        
+                        <div class = "item" id = "phone-call">
+                            <div class = "main game-info">
+                                "I've been playing with my own cipher, dude! This cipher is lit!" <br>
+                                "Parents can't find me for weeks now!" <br>
+                                "I'm just too good!" <br>
+                                "Hehe, I'm in G A I P." <br>
+                                "Hihihi, Good luck decoding that." <br>
+                            </div>
+                        </div>
+                        
+                        <div class = "item" id = "note3-file">
+                            <img id = "markings" src = "res/icons/markings.png">
+                        </div>
+                        
+                        <div class = "item" id = "note4-file">
+                            <div class = "main game-info">
+                                K=What's my name? <br>
+                                V='C'-'A' <br>
+                                V='B' <br>
+                                X='Z'-'A' <br>
+                                X='Y' <br>
+                                A=1,Z=26 <br>
+                            </div>
+                        </div>
+                        
+                        <button id = "close-file" class = "ingame-button">
+                        Close
+                        </button>
+                    </div>
+                    <!-- ITEM CONTAINER END -->
+                    
+                    <!-- ITEMS MENU CONTAINER START -->
+                    <div id = "item-main-container">
+                        <div class = "overlay"></div>
+                        
+                        <div class = "main">
+                            <button class = "game-button item-button" data-openid = "#file" id = "file-btn"> Case File </button>
+                            <button class = "game-button item-button" data-openid = "#note1-file" id = "note1-btn">Note # 1 </button>
+                            <button class = "game-button item-button" data-openid = "#text-file" id = "textmess-btn">Text Message </button>
+                            <button class = "game-button item-button" data-openid = "#note2-file" id = "note2-btn"> Note # 2 </button>
+                            <button class = "game-button item-button" data-openid = "#phone-call" id = "phone-call-btn"> Phone Call Log </button>
+                            <button class = "game-button item-button" data-openid = "#note3-file" id = "note3-btn"> Note # 3 </button>
+                            <button class = "game-button item-button" data-openid = "#note4-file" id = "note4-btn"> Note # 4 </button>
+                        </div>
+                    </div>
+                    <!-- ITEMS MENU CONTAINER END -->
+                    
+                    <!-- OBJECTIVE CONTAINER START -->
+                    <div class = "objectives-container">
+                        <div class = "overlay"> </div>     
+                        <div class = 'main'>
+                            <div class = "header"> OBJECTIVES </div> 
+                        </div>
+                    </div>
+                    <!-- OBJECTIVE CONTAINER END -->
+                    
+                    <!-- NOTEBOOK CONTAINER START -->
+                    <div class = "notebook-container">
+                        <div class = "overlay"> </div>
+                        <div class = "main">
+                            <div class = "header"> NOTES </div>
+                        </div>
+                    </div>
+                    <!-- NOTEBOOK CONTAINER END -->
+                </div>
+                <!-- FRAME CONTAINER END -->
+            </div>
+            <!-- MAIN GAME END -->
+            <div class = "audio-container">
+                <audio src = "res/sounds/bg.wav" id = "bg-audio" loop> </audio>
+                <audio src = "res/sounds/button.wav" id = "button-audio"> </audio>
+                <audio src = "res/sounds/rain.wav" id = "rain-audio" loop> </audio>
+            </div>
+            
+            <!-- MAIN MENU START -->
+            <div class = "main-menu">
+                <div class = "title">
+                    <h1> K R Y P T O </h1>
+                    <h5> Introduction to Data Encrpytion </h5>
                 </div>
                 <div class = "menu-button-container">
-                    <button id = "about-button" class = "menu-button" onclick="about()"> 
-                        ABOUT
-                    </button>
+                    <button id = "start" class = "menu-button"> START </button>
+                    <button id = "about" class = "menu-button"> ABOUT </button>
                 </div>
             </div>
+            <!-- MAIN MENU END -->
+            
+            <!-- SETTINGS START -->
+            <div id = "options"> 
+                <div class = "options-overlay"> </div>
+                <div class = "options-content">
+                    <h3> Settings </h3>
+                    <h4> Volume </h4>
+                    BG &nbsp;&nbsp;<input id = "bg" type="range" min=0 max=100 oninput="volumeBG()"> <br>
+                    SFX&nbsp;<input id = "sfx" type="range" min=0 max=100 oninput="volumeSFX()"> <br>
+                </div>
+            </div>
+            <!-- SETTINGS END -->
+            
+            <!-- SETTINGS BUTTON START -->
+            <button id = "options-trigger">
+                <img id = "options-btn" class = "options-image" src = "res/icons/settings.png">
+                <img id = "close-btn" class = "options-image" src = "res/icons/cancel.png">
+                <span class = "options-text">  Options </span>
+            </button>
+            <!-- SETTINGS BUTTON END -->
+            
+            <!-- ABOUT START -->
             <div class = "about-container">
                 <div class = "about">
-                    <button id = "about-back-button" onclick="start()"> X </button>
+                    <button id = "about-back-button" onclick="startVisible()"> X </button>
                     <div id = "about-title" class = "about-item"> 
                         ABOUT
                     </div>
                     <p id = "about-description" class = "about-item"> 
-                        This is a game designed to teach data encryption. This is made for a requirement for SOCTEC2 [Society and Technology 2] under Mr. Jeremiah Joaquin in De La Salle University, Manila.
+                        This is a educational game designed to teach data encryption. This is made for a requirement for SOCTEC2 [Society and Technology 2] under Mr. Jeremiah Joaquin in De La Salle University, Manila.
                     </p>
                     
                     <ul id = "about-members-list" class = "about-item">
@@ -60,6 +502,8 @@
                     </ul>
                 </div>
             </div>
+            <!-- ABOUT END -->
         </div>
+        <!-- VIEWPORT MAIN END -->
     </body>
 </html>

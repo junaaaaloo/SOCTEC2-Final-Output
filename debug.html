@@ -1,0 +1,359 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
+        <title> Krypto </title>
+
+        <!-- LIBRARIES USED -->
+        <script src = "js/lib/jquery-3.2.1.min.js"> </script>
+        <script src = "js/lib/pixi.min.js"> </script>
+        
+        <!-- MAIN JS -->
+        <script> 
+            /* GAME VARIABLES */
+            var option_open = false;
+            var time = 0;
+            var hintsCount = 3;
+            var toolsOfUser = [];
+            var allItems = [];
+            var timerInterval;
+
+            function visibleItem (item) {
+                $('.item').each(function(index, it) {
+                    $(it).hide();    
+                });
+
+                $(item).show(function(){
+                        $('.item-container').slideDown();
+                });
+            }
+
+
+            var detective = "Jeff Hancock";
+            var charmain = "Zane McMullin";
+            var char1 = "Chester Smith";
+            var char2 = "Xander Waden";
+            var char3 = "Mark Sue";
+            var char4 = "Philip Speer";
+            var wife = "Heather McMullin";
+            var husband = "John McMullin";
+            var playerName = "";
+
+            var objectives = [];
+            var notebookcontent = [];
+
+            var mute = [false, false];
+
+            /* PATH DIRS */
+            var char1_idle =  ('res/characters/char1-idle.png');
+            var char1_talking = ('res/characters/char1-talking.png');
+            var char2_idle = ('res/characters/char2-idle.png');
+            var char2_talking = ('res/characters/char2-talking.png');
+            var char3_talking = ('res/characters/char3-talking.png');
+            var char4_idle = ('res/characters/char4-idle.png');
+            var char4_talking = ('res/characters/char4-talking.png');
+            var charmain_ = ('res/characters/charmain-.png');
+            var charmain_laughing = ('res/characters/charmain-laughing.png');
+            var charmain_talking = ('res/characters/charmain-talking.png');
+            var detective_happy = ('res/characters/detective-happy.png');
+            var detective_idle = ('res/characters/detective-idle.png');
+            var detective_talking = ('res/characters/detective-talking.png');
+            var husband_angry = ('res/characters/husband-angry.png');
+            var husband_idle = ('res/characters/husband-idle.png');
+            var husband_sad = ('res/characters/husband-sad.png');
+            var husband_talking = ('res/characters/husband-talking.png');
+            var wife_angry = ('res/characters/wife-angry.png');
+            var wife_idle = ('res/characters/wife-idle.png');
+            var wife_sad = ('res/characters/wife-sad.png');
+            var wife_talking = ('res/characters/wife-talking.png');
+
+            function Chat (image, content, name) {
+                this.image = image;
+                this.content = content;
+                this.name = name;
+            }
+
+            $(document).ready(function(){
+                $('#close-file').click(function(){
+                    $('.item-container').slideUp(); 
+                });
+                
+                visibleItem('none');
+                $('#item-main-container').hide();
+                $('.notebook-container').hide();
+                $('.objectives-container').hide(function(){
+                    initHomeKitchen();
+                });
+                
+                $('#objectives').click(function(){
+                    $('.objectives-container').slideToggle();
+                });
+                
+                $('#tools').click(function(){
+                    $('#item-main-container').slideToggle();
+                });
+                
+                $('#notebook').click(function(){
+                    $('.notebook-container').slideToggle();
+                })
+                
+                $('.item-button').click(function(){
+                   var id = $(this).attr('data-openid'); 
+                    $('#item-main-container').slideUp(function(){
+                        visibleItem(id);
+                    });
+                });
+            });
+
+            function pushChat (chatbox, chat) {
+                $(chatbox + ' .chat-name').html(chat.name);
+                $(chatbox + ' img').attr('src', chat.image);
+                $(chatbox + ' .chat-content').html(chat.content);
+            }
+
+            function pushGame (gameinfo, message) {
+                $(gameinfo).html(message);
+            }
+
+            function pushReal (realinfo, message) {
+                $(realinfo).html(message);
+            }
+            
+            function pushNotebook(message) {
+                var docu = document.createElement('div');
+                $(docu).addClass('real-info');
+                $('.notebook-container .main').append(docu);
+            }
+
+            function pushObjective(message) {
+                var docu = document.createElement('div');
+                $(docu).addClass('game-info');
+                $(docu).html(message)
+                $('.objectives-container .main').append(docu);
+            }
+            
+            function lock() {
+                $("#file-btn").hide();
+                $("#note1-btn").hide();
+                $("#textmess-btn").hide();
+                $("#note2-btn").hide();
+                $("#phone-call-btn").hide();
+                $("#note3-btn").hide();
+                $("#note4-btn").hide();
+            }
+
+        
+
+        </script>
+        <!-- SUB MAIN CSS -->
+        <link href="css/about.css" type="text/css" rel="stylesheet">
+        <link href="css/main-menu.css" type="text/css" rel="stylesheet">
+        <link href="css/options.css" type="text/css" rel="stylesheet">
+        
+        <!-- FRAMES CSS -->
+        <link href="css/frames/frames.css" type="text/css" rel="stylesheet">
+        <link href="css/frames/01-tutorial.css" type="text/css" rel="stylesheet">
+        <link href="css/frames/02-office.css" type="text/css" rel="stylesheet">
+        <link href="css/frames/03-homemain.css" type="text/css" rel="stylesheet">
+        <link href="css/frames/04-garden.css" type="text/css" rel="stylesheet">
+        <link href="css/frames/05-home-final.css" type="text/css" rel="stylesheet">
+        <link href="css/frames/06-homekitchen.css" type="text/css" rel="stylesheet">
+        <link href="css/frames/07-homefinal.css" type="text/css" rel="stylesheet">
+        
+        <!-- MAIN CSS -->
+        <link href="css/index.css" type="text/css" rel="stylesheet">
+    </head>
+    
+    <body>
+        <div id = "background">  </div>
+        <div id = "overlay">  </div>
+        
+        <!-- VIEWPORT MAIN START -->
+        <div id = "viewport">
+            <!-- MAIN GAME START -->
+            <div id = "main">
+                <!-- MAIN GAME -> MENU FOR GAME START -->
+                <div id = "game-menu">
+                    <h3> KYRPTO </h3>
+                    <p class = "location"> Tutorial </p>
+                    <p id = "time"> Time 00:00:00 </p>
+                    <button id = "tools" class = "game-button" title = "Here you can view all the items you got from the game"> Items </button>
+                    <button id = "objectives" class = "game-button" title = "Click this to access your tools!"> Objectives </button>
+                    <button id = "notebook" class = "game-button" title="Click this to access your notebook!"> Notebook </button>
+                    <button id = "giveup" class = "game-button"> Give Up </button>
+                </div>
+                <!-- MAIN GAME -> MENU FOR GAME END -->
+                
+                <!-- FRAMES CONTAINER START -->
+                    <div id = "frame-container">
+                    <!-- 7TH FRAME: LAST HOME START -->
+                    <div class = "frame" id = "home-final">     
+                        <div id = "book"> </div>
+                        <div id = "phone"> </div>
+                        <div class = "background"> </div>
+                        <div class = "overlay"> </div>
+                        
+                        <div class = "maincontent">
+                            <div class = "clue" id = "note4"></div>
+                            <div class = "chatbox">
+                                <div class = "image"> <img> </div>
+                                <div class = "chat-message">
+                                    <p class = "chat-name"> </p>
+                                    <p class = "chat-content">
+                                    </p>
+                                    <p class = "next">
+                                        Next >>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class = "game-info"> </div>
+                            <div class = "real-info"> </div>
+                            
+                            <div class = "decode">
+                                <input type = "text" class='ciphertext ingame-field'>
+                                <button class = "decode-btn game-button"> 
+                                DECODE 
+                                </button>
+                            
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 7TH FRAME: LAST HOME END -->
+                        
+                    <!-- ITEM CONTAINER START -->
+                    <div class = "item-container">
+                        <div class = "item-overlay"> </div>
+                        <div class = "items-main">
+                            <!-- FILE START -->
+                            <div id = "file" class = "item">
+                                <div class = "main">
+                                    <h1 class = "file-header"> 
+                                        CASE NO. 0987674102 <br> 
+                                        Missing Person since September 2, 2017 
+                                    </h1>
+                                    <div class = "image">
+                                        <img src='res/characters/charmain-.png'>    
+                                    </div>
+                                    <p class = "file-name"> Name: </p> 
+                                    <p class = "file-gender"> Gender: Male </p>
+                                    <p class = "file-age"> Age: 15 </p>
+                                    <p class = "file-address"> Address: 13 3 11 9 14 12 5 25 0 18 15 1 4 0 7 15 20 8 1 13 0 3 9 20 25 </p>
+                                    Description: 
+                                    <ul class = "file-description">
+                                        <li> last seen 3 weeks ago. No one knows where he went. </li>
+                                        <li> left house at 5:00 PM never came back. </li>
+                                        <li> quite the prankster, leaves a lot of clues  </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- FILE END -->
+                            
+                            <!-- NOTE 1 START -->
+                            <div class = "item" id = "note1-file">
+                                <div class = "main game-info"> 
+                                    CASE FILE DATABASE UPDATE: <br>
+                                    DUE TO SYSTEM MALFUNCTION, ALL ADDRESS DATA ARE NOW ENCRYPTED. <br>
+                                    PLEASE REFER TO THE KEY BELOW: <br>
+                                    SPACE = 0 <br>
+                                    A = 1 <br>
+                                      :<br>
+                                      :<br>
+                                    Z = 26 <br>
+                                    THANK YOU!
+                                </div>
+                            </div>
+                            <!-- NOTE 1 END -->
+                        </div>
+                        
+                        <div class = "item" id = "text-file">
+                            <div class = "main game-info"> 
+                                From: Zach McMullin <br>
+                                To: Chester Smith <br>
+                                Hey dude! Meet me in Kzkxtoze Mgxjkt
+                                - ROT6 bro ;)
+                                <br>
+                            </div>
+                        </div>
+                        
+                        <div class = "item" id = "note2-file"> 
+                            <div class = "main game-info">
+                                I've been playing with the Caesar cipher. It seems old though. <br>
+                                What does ROT mean? <br>
+                                I don't know but I just shift the alphabet everytime. <br>
+                                
+                                HELLO -> ROT1 -> IFMMP
+                                HELLO -> ROT2 -> JGNNQ                          
+                            </div>
+                        </div>
+                        
+                        <div class = "item" id = "phone-call">
+                            <div class = "main game-info">
+                                "I've been playing with the Vigenere cipher, dude! It was LIT." <br>
+                                "Parents can't find me for weeks now!" <br>
+                                "I'm just too good!" <br>
+                                "Hehe, I'm in G A I P." <br>
+                                "Hihihi, Good luck decoding that." <br>
+                            </div>
+                        </div>
+                        
+                        <div class = "item" id = "note3-file">
+                            <img id = "markings" src = "res/icons/markings.png">
+                        </div>
+                        
+                        <div class = "item" id = "note4-file">
+                            <div class = "main game-info">
+                                K=What's my name? <br>
+                                V='C'-'A' <br>
+                                V='B' <br>
+                                X='Z'-'A' <br>
+                                X='Y' <br>
+                                A=1,Z=26 <br>
+                            </div>
+                        </div>
+                        
+                        <button id = "close-file" class = "ingame-button">
+                        Close
+                        </button>
+                    </div>
+                    <!-- ITEM CONTAINER END -->
+                    <!-- ITEMS MENU CONTAINER START -->
+                    <div id = "item-main-container">
+                        <div class = "overlay"></div>
+                        
+                        <div class = "main">
+                            <button class = "game-button item-button" data-openid = "#file" id = "file-btn"> Case File </button>
+                            <button class = "game-button item-button" data-openid = "#note1-file" id = "note1-btn">Note # 1 </button>
+                            <button class = "game-button item-button" data-openid = "#text-file" id = "textmess-btn">Text Message </button>
+                            <button class = "game-button item-button" data-openid = "#note2-file" id = "note2-btn"> Note # 2 </button>
+                            <button class = "game-button item-button" data-openid = "#phone-call" id = "phone-call-btn"> Phone Call Log </button>
+                            <button class = "game-button item-button" data-openid = "#note3-file" id = "note3-btn"> Note # 3 </button>
+                            <button class = "game-button item-button" data-openid = "#note4-file" id = "note4-btn"> Note # 4 </button>
+                        </div>
+                    </div>
+                    <!-- ITEMS MENU CONTAINER END -->
+                        
+                    <!-- OBJECTIVE CONTAINER START -->
+                    <div class = "objectives-container">
+                        <div class = "overlay"> </div>     
+                        <div class = 'main'>
+                            <div class = "header"> OBJECTIVES </div> 
+                        </div>
+                    </div>
+                    <!-- OBJECTIVE CONTAINER END -->
+                    
+                    <!-- NOTEBOOK CONTAINER START -->
+                    <div class = "notebook-container">
+                        <div class = "overlay"> </div>
+                        <div class = "main">
+                            <div class = "header"> NOTES </div>
+                        </div>
+                    </div>
+                    <!-- NOTEBOOK CONTAINER END -->
+                </div>
+                <!-- FRAME CONTAINER END -->
+            </div>
+            <!-- MAIN GAME END -->
+        </div>
+        <!-- VIEWPORT MAIN END -->
+    </body>
+</html>

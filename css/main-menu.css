@@ -1,0 +1,43 @@
+.title {
+    padding: 10px;
+    font-size: 60px;
+    margin: 0 auto;
+    margin-top: 100px;
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    color: white;
+    background-color: black;
+    opacity: 0.8;
+}
+
+.title h1 {
+    margin: 0 auto;
+}
+
+.title h5 {
+    margin: 0 auto;
+}
+
+.menu-button-container {
+    width: 100%;
+    text-align: center;
+}
+
+.menu-button {
+    background-color: transparent;
+    color: white;
+    font-size: 50px;
+    margin: 15px auto;
+    padding: 0px 70px 0 70;
+    text-align: center;
+    border-style: solid;
+    font-family: 'Open Sans', sans-serif;
+    transition: 0.5s;
+    border-color: white;
+}
+
+.menu-button:hover {
+    color: black;
+    background-color: white;
+    cursor: pointer; 
+}

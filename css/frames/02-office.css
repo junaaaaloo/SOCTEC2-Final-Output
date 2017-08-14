@@ -1,0 +1,27 @@
+#office .background {
+    background-image: url(../../res/office.jpg);
+}
+
+#office .chatbox {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 95%;
+}
+
+#office .game-info {
+    position: absolute;
+    bottom: 0;
+    width: 95%;
+    left: 0;
+}
+
+
+#note1 {
+    position: absolute;
+    width: 100px;
+    height: 50px;
+    bottom: 10%;
+    left: 35%;
+    z-index: 5;
+}

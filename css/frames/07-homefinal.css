@@ -1,0 +1,17 @@
+#home-final .background {
+    background-image: url(../../res/home-last.jpg);
+}
+
+#home-final .chatbox {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 95%;
+}
+
+#home-final .game-info {
+    position: absolute;
+    bottom: 0;
+    width: 95%;
+    left: 0;
+}

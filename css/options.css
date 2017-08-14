@@ -1,0 +1,86 @@
+#options {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+}
+
+#options h3{
+    margin: 100 0 0 0px;
+    padding: 0px;
+    font-size: 50px;
+}
+
+#options h4 {
+    margin: 0px;
+    padding: 0px;
+    font-size: 30px;
+}
+
+.options-content {
+    z-index: 5;
+    position: absolute;
+    font-family: 'Raleway';
+    color: white;
+    width: 500px;
+    font-size: 30px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+}
+
+.options-content input{
+    width: 350px;
+}
+.options-overlay {
+    position: absolute;
+    z-index: 0;
+    bottom: 0px;
+    right: 0px;
+    opacity: 0.9;
+    background-color: black;
+    width: 100%;
+    height: 100%;
+}
+
+#options-trigger img {
+    width: 40px;
+    height: 40px;
+    margin: 0;
+    padding: 5px;
+}
+
+#options-trigger {
+    position: absolute;
+    bottom: 0px;
+    cursor: pointer;
+    : 0px;
+    background-color: transparent;
+    border-style: none;
+    z-index: 10;
+    width: 50px;
+    padding: 0px;
+    height: 50px;
+    overflow: hidden;
+    border-radius: 100px;
+    display: flex;
+    transition: 0.6s;
+}
+
+#options-trigger:hover {
+    width: 140px;
+    background-color: black;
+}
+
+.options-text{
+    padding-left: 10px;
+    font-size: 20px;
+    line-height: 50px;
+    font-family: 'Raleway', sans-serif;
+    left: 50px;
+    top: 5px;
+    color: white;
+}

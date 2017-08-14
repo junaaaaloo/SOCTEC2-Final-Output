@@ -1,0 +1,17 @@
+#garden .background {
+    background-image: url(../../res/garden.jpg);
+}
+
+#garden .chatbox {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 95%;
+}
+
+#garden .game-info {
+    position: absolute;
+    bottom: 0;
+    width: 95%;
+    left: 0;
+}
